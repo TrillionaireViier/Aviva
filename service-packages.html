@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Service Packages - Aviva Agency | Digital Marketing & Web Development</title>
+    <meta name="description" content="Explore our bundled service packages designed for specific business types. Save money with our Restaurant Digital Package, Service Business Suite, and E-commerce Starter packages.">
+    <meta name="keywords" content="service packages, digital marketing packages, web development bundles, restaurant digital package, service business suite, e-commerce starter">
+    <meta name="author" content="Aviva Agency">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Package-specific styles */
+        .packages-section {
+            padding: 120px 0 80px;
+            background: #f8f9fa;
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .package-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .package-header {
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .package-name {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .package-savings {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .popular-tag {
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-weight: bold;
+            text-align: center;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        
+        .package-features {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+        
+        .feature-list li {
+            padding: 0.75rem 0;
+            color: #666;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li i {
+            color: #28a745;
+            margin-top: 0.25rem;
+        }
+        
+        .package-cta {
+            text-align: center;
+        }
+        
+        .package-cta .btn {
+            width: 100%;
+        }
+        
+        .package-card.popular {
+            border: 2px solid #667eea;
+            transform: scale(1.05);
+        }
+        
+        .package-card.popular:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+        
+        .package-comparison {
+            margin-top: 4rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comparison-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table th {
+            background: #f8f9fa;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .comparison-check {
+            color: #28a745;
+            font-size: 1.2rem;
+        }
+        
+        .comparison-x {
+            color: #dc3545;
+            font-size: 1.2rem;
+        }
+        
+        .custom-package {
+            margin-top: 4rem;
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 15px;
+        }
+        
+        .custom-package h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .custom-package p {
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Aviva Agency</div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">☰</label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-label">Services</a>
+                    <div class="dropdown-content">
+                        <div class="sub-dropdown marketing-sub-dropdown">
+                            <a href="marketing-services.html" class="sub-dropdown-label">Marketing</a>
+                            <div class="sub-dropdown-content">
+                                <a href="digital-marketing.html">Paid Advertising</a>
+                                <a href="social-media.html">Social Media</a>
+                                <a href="content-marketing.html">Content Marketing</a>
+                                <a href="seo-services.html">SEO Services</a>
+                                <a href="email-marketing.html">Email Marketing</a>
+                                <a href="chatbot-marketing.html">Chatbot Marketing</a>
+                            </div>
+                        </div>
+                        <div class="sub-dropdown programming-sub-dropdown">
+                            <a href="programming-services.html" class="sub-dropdown-label">Programming</a>
+                            <div class="sub-dropdown-content">
+                                <a href="frontend-development.html">Frontend Development</a>
+                                <a href="backend-development.html">Backend Development</a>
+                                <a href="database-development.html">Database Development</a>
+                                <a href="api-development.html">API Development</a>
+                                <a href="mobile-dev-services.html">Mobile Development</a>
+                                <a href="desktop-app-development.html">Desktop App Development</a>
+                                <a href="business-automation.html">Business Automation</a>
+                                <a href="n8n-automation.html">N8N Automation</a>
+                                <a href="zapier-automation.html">Zapier Automation</a>
+                                <a href="custom-software-development.html">Custom Software Development</a>
+                                <a href="ui-ux-design.html">UI/UX Design</a>
+                                <a href="ai-automation.html">AI Automation</a>
+                            </div>
+                        </div>
+                        <div class="sub-dropdown design-sub-dropdown">
+                            <a href="design.html" class="sub-dropdown-label">Design</a>
+                            <div class="sub-dropdown-content">
+                                <a href="ui-ux-design.html">UI/UX Design</a>
+                                <a href="graphic-design.html">Graphic Design</a>
+                                <a href="brand-identity.html">Brand Identity</a>
+                                <a href="logo-design.html">Logo Design</a>
+                            </div>
+                        </div>
+                        <div class="sub-dropdown general-services-sub-dropdown">
+                            <a href="general-services.html" class="sub-dropdown-label">General Services</a>
+                            <div class="sub-dropdown-content">
+                                <a href="mobile-chatbot.html">Mobile Chatbot</a>
+                                <a href="google-business-profile.html">Google Business Profile</a>
+                                <a href="client-qr-code.html">Custom QR Codes</a>
+                                <a href="online-menu.html">Online Menu</a>
+                                <a href="quick-booking.html">Quick Booking</a>
+                                <a href="social-media-setup.html">Social Media Setup</a>
+                                <a href="messenger-integration.html">WhatsApp Integration</a>
+                                <a href="workflow-automation.html">Workflow Automation</a>
+                                <a href="make-automation.html">Make.com Automation</a>
+                                <a href="automation-consulting.html">Automation Consulting</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="service-packages.html" class="active">Packages</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Service Packages Hero -->
+    <section class="service-detail-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> > Service Packages
+            </div>
+            <h1>Popular Service Packages</h1>
+            <p class="hero-subtitle">Bundled solutions designed for specific business types. Save money and get everything you need in one package.</p>
+        </div>
+    </section>
+
+    <!-- Service Packages Section -->
+    <section class="packages-section">
+        <div class="container">
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-header">
+                        <h2 class="package-name">Restaurant Digital Package</h2>
+                        <div class="package-price">$1,200</div>
+                        <div class="package-savings">Save $300</div>
+                    </div>
+                    <div class="package-features">
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Online Menu with QR Codes</li>
+                            <li><i class="fas fa-check-circle"></i> Google Business Profile Setup</li>
+                            <li><i class="fas fa-check-circle"></i> WhatsApp Business Integration</li>
+                            <li><i class="fas fa-check-circle"></i> Social Media Setup</li>
+                            <li><i class="fas fa-check-circle"></i> Online Booking System</li>
+                        </ul>
+                        <div class="package-cta">
+                            <a href="#contact" class="btn btn-primary">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="package-card popular">
+                    <div class="popular-tag">Most Popular</div>
+                    <div class="package-header">
+                        <h2 class="package-name">Service Business Suite</h2>
+                        <div class="package-price">$1,800</div>
+                        <div class="package-savings">Save $500</div>
+                    </div>
+                    <div class="package-features">
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Mobile Chatbot Development</li>
+                            <li><i class="fas fa-check-circle"></i> Quick Booking System</li>
+                            <li><i class="fas fa-check-circle"></i> Google Business Profile</li>
+                            <li><i class="fas fa-check-circle"></i> Workflow Automation</li>
+                            <li><i class="fas fa-check-circle"></i> Social Media Setup</li>
+                            <li><i class="fas fa-check-circle"></i> Custom QR Codes</li>
+                        </ul>
+                        <div class="package-cta">
+                            <a href="#contact" class="btn btn-primary">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-header">
+                        <h2 class="package-name">E-commerce Starter</h2>
+                        <div class="package-price">$900</div>
+                        <div class="package-savings">Save $200</div>
+                    </div>
+                    <div class="package-features">
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Social Media Setup with Shopping</li>
+                            <li><i class="fas fa-check-circle"></i> WhatsApp Business Integration</li>
+                            <li><i class="fas fa-check-circle"></i> Google Business Profile</li>
+                            <li><i class="fas fa-check-circle"></i> Custom QR Codes</li>
+                            <li><i class="fas fa-check-circle"></i> Basic Automation</li>
+                        </ul>
+                        <div class="package-cta">
+                            <a href="#contact" class="btn btn-primary">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-comparison">
+                <h2 class="comparison-title">Package Comparison</h2>
+                <div class="table-responsive">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Restaurant Digital</th>
+                                <th>Service Business</th>
+                                <th>E-commerce Starter</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Online Menu with QR Codes</td>
+                                <td><i class="fas fa-check comparison-check"></i></td>
+                                <td><i class="fas fa-times comparison-x"></i></td>
+                                <td><i class="fas fa-times comparison-x"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Google Business Profile</td>
+                                <td><i class="fas fa-check comparison-check"></i></td>
+                                <td><i class="fas fa-check comparison-check"></i></td>
+                                <td><i class="fas fa-check comparison-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>WhatsApp Business Integration</td>
+                                <td><i class="fas fa-check comparison-check"></i></td>
+                                <td><i class="fas fa-times comparison-x"></i></td>
+                                <td><i class="fas fa-check comparison-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Social Media Setup</td>
+                                <td><i class="fas fa-check comparison-check"></i></td>
+                                <td><i class="fas fa-check comparison-check"></i></td>
+                                <td><i class="fas fa-check comparison-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Online Booking System</td>
+                                <td><i class="fas fa-check comparison-check"></i></td>
+                                <td><i class="fas fa-check comparison-check"></i></td>
+                                <td><i class="fas fa-times comparison-x"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Mobile Chatbot</td>
+                                <td><i class="fas fa-times comparison-x"></i></td>
+                                <td><i class="fas fa-check comparison-check"></i></td>
+                                <td><i class="fas fa-times comparison-x"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Workflow Automation</td>
+                                <td><i class="fas fa-times comparison-x"></i></td>
+                                <td><i class="fas fa-check comparison-check"></i></td>
+                                <td><i class="fas fa-times comparison-x"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Custom QR Codes</td>
+                                <td><i class="fas fa-times comparison-x"></i></td>
+                                <td><i class="fas fa-check comparison-check"></i></td>
+                                <td><i class="fas fa-check comparison-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>E-commerce Integration</td>
+                                <td><i class="fas fa-times comparison-x"></i></td>
+                                <td><i class="fas fa-times comparison-x"></i></td>
+                                <td><i class="fas fa-check comparison-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Regular Price</strong></td>
+                                <td>$1,500</td>
+                                <td>$2,300</td>
+                                <td>$1,100</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Package Price</strong></td>
+                                <td>$1,200</td>
+                                <td>$1,800</td>
+                                <td>$900</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Your Savings</strong></td>
+                                <td>$300</td>
+                                <td>$500</td>
+                                <td>$200</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="custom-package">
+                <h3>Need a Custom Package?</h3>
+                <p>Don't see exactly what you need? We can create a custom package tailored to your specific business requirements and goals.</p>
+                <a href="#contact" class="btn btn-secondary btn-large">Contact Us for Custom Package</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Package Interested In</label>
+                            <select id="service" name="service">
+                                <option value="">Select a package</option>
+                                <option value="restaurant">Restaurant Digital Package</option>
+                                <option value="service-business">Service Business Suite</option>
+                                <option value="ecommerce">E-commerce Starter</option>
+                                <option value="custom">Custom Package</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@avivaagency.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Business Ave, Suite 100</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Mon - Fri: 9:00 AM - 6:00 PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Aviva Agency. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

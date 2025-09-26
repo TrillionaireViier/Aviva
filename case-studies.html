@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Case Studies - Aviva Agency | Digital Marketing & Web Development Success Stories</title>
+    <meta name="description" content="Explore our detailed case studies showcasing how we've helped businesses achieve remarkable growth through digital marketing, web development, and automation solutions.">
+    <meta name="keywords" content="case studies, success stories, digital marketing results, web development projects, business automation case studies">
+    <meta name="author" content="Aviva Agency">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Case Studies specific styles */
+        .case-studies-section {
+            padding: 120px 0 80px;
+            background: #f8f9fa;
+        }
+        
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .case-study-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .case-study-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .case-study-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .case-study-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .case-study-card:hover .case-study-image img {
+            transform: scale(1.05);
+        }
+        
+        .case-study-category {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .case-study-content {
+            padding: 1.5rem;
+        }
+        
+        .case-study-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .case-study-client {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .case-study-stats {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .case-study-stat {
+            background: #f8f9fa;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .case-study-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .case-study-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .case-study-link:hover {
+            color: #764ba2;
+        }
+        
+        .case-study-link i {
+            font-size: 0.8rem;
+        }
+        
+        .case-study-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: transparent;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .case-study-detail {
+            padding: 3rem 0;
+            background: white;
+        }
+        
+        .case-study-header {
+            margin-bottom: 3rem;
+        }
+        
+        .case-study-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .case-study-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .case-study-meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .meta-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.25rem;
+        }
+        
+        .meta-value {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .case-study-featured-image {
+            margin-bottom: 3rem;
+        }
+        
+        .case-study-featured-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .case-study-section {
+            margin-bottom: 3rem;
+        }
+        
+        .case-study-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+        
+        .case-study-section p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .result-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .result-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .result-label {
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .testimonial-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        
+        .testimonial-content {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+        
+        .testimonial-author-info h4 {
+            margin-bottom: 0.25rem;
+        }
+        
+        .testimonial-author-info span {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        
+        .case-study-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .related-case-studies {
+            margin-top: 4rem;
+        }
+        
+        .related-case-studies h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Aviva Agency</div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">☰</label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-label">Services</a>
+                    <div class="dropdown-content">
+                        <div class="sub-dropdown marketing-sub-dropdown">
+                            <a href="marketing-services.html" class="sub-dropdown-label">Marketing</a>
+                            <div class="sub-dropdown-content">
+                                <a href="digital-marketing.html">Paid Advertising</a>
+                                <a href="social-media.html">Social Media</a>
+                                <a href="content-marketing.html">Content Marketing</a>
+                                <a href="seo-services.html">SEO Services</a>
+                                <a href="email-marketing.html">Email Marketing</a>
+                                <a href="chatbot-marketing.html">Chatbot Marketing</a>
+                            </div>
+                        </div>
+                        <div class="sub-dropdown programming-sub-dropdown">
+                            <a href="programming-services.html" class="sub-dropdown-label">Programming</a>
+                            <div class="sub-dropdown-content">
+                                <a href="frontend-development.html">Frontend Development</a>
+                                <a href="backend-development.html">Backend Development</a>
+                                <a href="database-development.html">Database Development</a>
+                                <a href="api-development.html">API Development</a>
+                                <a href="mobile-dev-services.html">Mobile Development</a>
+                                <a href="desktop-app-development.html">Desktop App Development</a>
+                                <a href="business-automation.html">Business Automation</a>
+                                <a href="n8n-automation.html">N8N Automation</a>
+                                <a href="zapier-automation.html">Zapier Automation</a>
+                                <a href="custom-software-development.html">Custom Software Development</a>
+                                <a href="ui-ux-design.html">UI/UX Design</a>
+                                <a href="ai-automation.html">AI Automation</a>
+                            </div>
+                        </div>
+                        <div class="sub-dropdown design-sub-dropdown">
+                            <a href="design.html" class="sub-dropdown-label">Design</a>
+                            <div class="sub-dropdown-content">
+                                <a href="ui-ux-design.html">UI/UX Design</a>
+                                <a href="graphic-design.html">Graphic Design</a>
+                                <a href="brand-identity.html">Brand Identity</a>
+                                <a href="logo-design.html">Logo Design</a>
+                            </div>
+                        </div>
+                        <div class="sub-dropdown general-services-sub-dropdown">
+                            <a href="general-services.html" class="sub-dropdown-label">General Services</a>
+                            <div class="sub-dropdown-content">
+                                <a href="mobile-chatbot.html">Mobile Chatbot</a>
+                                <a href="google-business-profile.html">Google Business Profile</a>
+                                <a href="client-qr-code.html">Custom QR Codes</a>
+                                <a href="online-menu.html">Online Menu</a>
+                                <a href="quick-booking.html">Quick Booking</a>
+                                <a href="social-media-setup.html">Social Media Setup</a>
+                                <a href="messenger-integration.html">WhatsApp Integration</a>
+                                <a href="workflow-automation.html">Workflow Automation</a>
+                                <a href="make-automation.html">Make.com Automation</a>
+                                <a href="automation-consulting.html">Automation Consulting</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="service-packages.html">Packages</a></li>
+                <li><a href="case-studies.html" class="active">Case Studies</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Case Studies Hero -->
+    <section class="service-detail-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> > Case Studies
+            </div>
+            <h1>Our Success Stories</h1>
+            <p class="hero-subtitle">Explore how we've helped businesses achieve remarkable growth through innovative digital solutions.</p>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="case-studies-section">
+        <div class="container">
+            <div class="case-study-filters">
+                <button class="filter-btn active" data-filter="all">All Case Studies</button>
+                <button class="filter-btn" data-filter="marketing">Marketing</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="automation">Automation</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+            </div>
+
+            <div class="case-studies-grid">
+                <div class="case-study-card" data-category="marketing">
+                    <div class="case-study-image">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop&crop=center" alt="Bella Vista Restaurant - Local Social Media Campaign Case Study">
+                        <div class="case-study-category">Social Media</div>
+                    </div>
+                    <div class="case-study-content">
+                        <h3 class="case-study-title">Bella Vista Restaurant Transformation</h3>
+                        <div class="case-study-client">Client: Bella Vista Restaurant</div>
+                        <div class="case-study-stats">
+                            <span class="case-study-stat">200% Engagement</span>
+                            <span class="case-study-stat">Local SEO #1</span>
+                        </div>
+                        <p class="case-study-description">How we helped a local restaurant increase foot traffic by 150% through strategic social media marketing and local SEO optimization.</p>
+                        <a href="case-study-bella-vista.html" class="case-study-link">
+                            Read Case Study <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="case-study-card" data-category="web">
+                    <div class="case-study-image">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=center" alt="TechMart E-commerce - Full-Stack Web Development Case Study">
+                        <div class="case-study-category">E-commerce</div>
+                    </div>
+                    <div class="case-study-content">
+                        <h3 class="case-study-title">TechMart E-commerce Platform</h3>
+                        <div class="case-study-client">Client: TechMart Electronics</div>
+                        <div class="case-study-stats">
+                            <span class="case-study-stat">500% Sales Boost</span>
+                            <span class="case-study-stat">3.5s Load Time</span>
+                        </div>
+                        <p class="case-study-description">Building a lightning-fast e-commerce platform that increased online sales by 500% within the first quarter after launch.</p>
+                        <a href="case-study-techmart.html" class="case-study-link">
+                            Read Case Study <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="case-study-card" data-category="design">
+                    <div class="case-study-image">
+                        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=600&h=400&fit=crop&crop=center" alt="EcoGreen Rebrand - Complete Brand Identity Case Study">
+                        <div class="case-study-category">Brand Identity</div>
+                    </div>
+                    <div class="case-study-content">
+                        <h3 class="case-study-title">EcoGreen Complete Rebrand</h3>
+                        <div class="case-study-client">Client: EcoGreen Solutions</div>
+                        <div class="case-study-stats">
+                            <span class="case-study-stat">Brand Recognition +400%</span>
+                            <span class="case-study-stat">Award Winner</span>
+                        </div>
+                        <p class="case-study-description">Creating a stunning eco-friendly brand identity that won the Green Design Award 2024 and increased brand recognition by 400%.</p>
+                        <a href="case-study-ecogreen.html" class="case-study-link">
+                            Read Case Study <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="case-study-card" data-category="automation">
+                    <div class="case-study-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=center" alt="MediCare Clinic - Workflow Automation Case Study">
+                        <div class="case-study-category">Automation</div>
+                    </div>
+                    <div class="case-study-content">
+                        <h3 class="case-study-title">MediCare Clinic Automation</h3>
+                        <div class="case-study-client">Client: MediCare Health Clinic</div>
+                        <div class="case-study-stats">
+                            <span class="case-study-stat">80% Time Saved</span>
+                            <span class="case-study-stat">$50K Annual Savings</span>
+                        </div>
+                        <p class="case-study-description">Implementing a comprehensive workflow automation system that reduced administrative work by 80% and saved $50,000 annually.</p>
+                        <a href="case-study-medicare.html" class="case-study-link">
+                            Read Case Study <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="case-study-card" data-category="marketing">
+                    <div class="case-study-image">
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop&crop=center" alt="Luxe Fashion Brand - Social Media Marketing Campaign Case Study">
+                        <div class="case-study-category">Social Media</div>
+                    </div>
+                    <div class="case-study-content">
+                        <h3 class="case-study-title">Luxe Fashion Brand Growth</h3>
+                        <div class="case-study-client">Client: Luxe Fashion Boutique</div>
+                        <div class="case-study-stats">
+                            <span class="case-study-stat">300% Growth</span>
+                            <span class="case-study-stat">50K+ Followers</span>
+                        </div>
+                        <p class="case-study-description">Transforming a boutique fashion brand into a social media powerhouse with viral content and influencer partnerships.</p>
+                        <a href="case-study-luxe.html" class="case-study-link">
+                            Read Case Study <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="case-study-card" data-category="web">
+                    <div class="case-study-image">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=400&fit=crop&crop=center" alt="DataFlow SaaS - Advanced SaaS Platform Case Study">
+                        <div class="case-study-category">SaaS Development</div>
+                    </div>
+                    <div class="case-study-content">
+                        <h3 class="case-study-title">DataFlow Analytics Platform</h3>
+                        <div class="case-study-client">Client: DataFlow Analytics</div>
+                        <div class="case-study-stats">
+                            <span class="case-study-stat">10K+ Users</span>
+                            <span class="case-study-stat">99.9% Uptime</span>
+                        </div>
+                        <p class="case-study-description">Building a scalable SaaS platform serving 10,000+ users with real-time analytics and enterprise-grade security.</p>
+                        <a href="case-study-dataflow.html" class="case-study-link">
+                            Read Case Study <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="case-study-card" data-category="automation">
+                    <div class="case-study-image">
+                        <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=600&h=400&fit=crop&crop=center" alt="GlobalShip Logistics - Make.com Automation Case Study">
+                        <div class="case-study-category">Make.com Automation</div>
+                    </div>
+                    <div class="case-study-content">
+                        <h3 class="case-study-title">GlobalShip Logistics Automation</h3>
+                        <div class="case-study-client">Client: GlobalShip Logistics</div>
+                        <div class="case-study-stats">
+                            <span class="case-study-stat">65% Process Optimization</span>
+                            <span class="case-study-stat">$120K Annual Savings</span>
+                        </div>
+                        <p class="case-study-description">Implementing Make.com automation workflows that streamlined operations and reduced manual data entry by 95%.</p>
+                        <a href="case-study-globalship.html" class="case-study-link">
+                            Read Case Study <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="case-study-card" data-category="design">
+                    <div class="case-study-image">
+                        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&h=400&fit=crop&crop=center" alt="Luxury Resort Branding - Premium Brand Experience Case Study">
+                        <div class="case-study-category">Brand Design</div>
+                    </div>
+                    <div class="case-study-content">
+                        <h3 class="case-study-title">Azure Bay Resort Rebranding</h3>
+                        <div class="case-study-client">Client: Azure Bay Luxury Resort</div>
+                        <div class="case-study-stats">
+                            <span class="case-study-stat">Bookings +180%</span>
+                            <span class="case-study-stat">Premium Positioning</span>
+                        </div>
+                        <p class="case-study-description">Creating a luxury brand experience that positioned a resort as a premium destination, increasing bookings by 180%.</p>
+                        <a href="case-study-azurebay.html" class="case-study-link">
+                            Read Case Study <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="case-study-card" data-category="marketing">
+                    <div class="case-study-image">
+                        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&h=400&fit=crop&crop=center" alt="TechStart Viral Campaign - Startup Growth Marketing Case Study">
+                        <div class="case-study-category">Growth Marketing</div>
+                    </div>
+                    <div class="case-study-content">
+                        <h3 class="case-study-title">TechStart Viral Growth</h3>
+                        <div class="case-study-client">Client: TechStart Innovation</div>
+                        <div class="case-study-stats">
+                            <span class="case-study-stat">1M+ Reach</span>
+                            <span class="case-study-stat">Series A Funded</span>
+                        </div>
+                        <p class="case-study-description">Launching a tech startup to viral fame, helping them secure Series A funding through strategic social media campaigns.</p>
+                        <a href="case-study-techstart.html" class="case-study-link">
+                            Read Case Study <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Be Our Next Success Story?</h2>
+            <p>Let's discuss how we can help your business achieve remarkable results.</p>
+            <a href="#contact" class="btn btn-primary">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="social-media">Social Media Marketing</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="automation">Business Automation</option>
+                                <option value="design">Design Services</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@avivaagency.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Business Ave, Suite 100</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Mon - Fri: 9:00 AM - 6:00 PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Aviva Agency. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Case Study Filtering
+        document.addEventListener("DOMContentLoaded", () => {
+            const filterButtons = document.querySelectorAll(".filter-btn");
+            const caseStudyCards = document.querySelectorAll(".case-study-card");
+            
+            filterButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove("active"));
+                    button.classList.add("active");
+                    
+                    // Filter case studies
+                    const filter = button.getAttribute("data-filter");
+                    
+                    caseStudyCards.forEach(card => {
+                        const category = card.getAttribute("data-category");
+                        
+                        if (filter === "all" || category === filter) {
+                            card.style.display = "block";
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
